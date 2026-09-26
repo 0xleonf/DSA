@@ -53,6 +53,29 @@ class SinglyLinkedList {
 		current.next = null;
 	}
 
+
+	public void deleteByPosition(int position) {
+		Node current = head;
+
+		if (position == 1) {
+			deleteHead();
+			return;
+		}
+
+		for (int i = 1; i < position - 1; i++) {
+			current = current.next;
+		}
+
+		if (current == null || current.next == null) {
+			System.out.println("out of the position!");
+			return;
+		}
+
+		current.next = current.next.next;
+
+
+	}
+
 	public void display() {
 		Node tail = head;
 
