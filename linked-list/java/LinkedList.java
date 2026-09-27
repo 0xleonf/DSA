@@ -17,16 +17,27 @@ class SinglyLinkedList {
 
 		if (head == null) {
 			head = newNode;
+			tail = newNode;
 			return;
 		}
 
-		tail = head;
-		while(tail.next != null) {
-			tail = tail.next;
-		}
-
 		tail.next = newNode;
+
+		tail = newNode;
 	}
+
+  public void insert_by_position(int position, int data) {
+    Node newNode = new Node(data);
+    Node current = head; 
+
+    for (int i = 1; i < (position-1); i++) {
+      current = current.next;
+    }
+
+    Node after = current.next;
+    current.next = newNode;
+    current.next.next = after; 
+  }
 
 	public void deleteHead() {
 		if (head != null) {
@@ -74,6 +85,21 @@ class SinglyLinkedList {
 		current.next = current.next.next;
 
 
+	}
+
+	public int search(int data) {
+		Node temp = head;
+		int index = 0;
+		while (temp.data != data) {
+			index++;
+			temp = temp.next;
+
+			if (temp == null) {
+				System.out.println("there is no value");
+				return -1;
+			}
+		}
+		return index;
 	}
 
 	public void display() {
