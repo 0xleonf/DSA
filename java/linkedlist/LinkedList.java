@@ -21,7 +21,7 @@ abstract class LinkedList {
   abstract void removeTail();
   abstract void removeHead();
 
-  abstract Object search(Object data);
+  // abstract Object search(Object data);
 
   abstract void display();
 
