@@ -29,6 +29,25 @@ class SinglyLinkedList extends LinkedList {
     head = newNode;
   }
 
+  void insertAt(int index, Object data) {
+    Node newNode = new Node(data);
+    Node current = head;
+
+    // head node
+    if (index == 0) {
+      prepend(data);
+    }
+
+    // not head either tail
+    for (int i = 0; i < (index - 1); i++) {
+      current = current.next;
+    }
+
+    Node after = current.next;
+    current.next = newNode;
+    current.next.next = after;
+  }
+
   @Override 
   void removeTail() {
     if (head == null) {
