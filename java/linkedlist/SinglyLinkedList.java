@@ -73,12 +73,30 @@ class SinglyLinkedList extends LinkedList {
         return;
     }
 
-    Node temp = head;
     head = head.next;
-    temp = null;
   }
 
-  @Override 
+  void removeAt(int index) {
+    Node current = head;
+
+    if (index == 0) {
+      removeHead();
+      return;
+    }
+
+    // search until the position at before the target node
+    for (int i = 0; i < (index-1); i++) {
+      current = current.next;
+    }
+    
+    // handling if the index args not exist
+    if(current == null || current.next == null) {
+      System.out.println("out of index, no node need to remove at this index");
+    }
+
+    current.next = current.next.next;
+  }
+
   Object search(Object data) {
     Node temp = head;
 

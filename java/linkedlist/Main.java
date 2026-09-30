@@ -7,7 +7,19 @@ public class Main {
     list.append("suki liar");
     list.append("kerjain skripsinya");
     list.prepend(23);
+    list.prepend(33);
     list.display();
+    list.removeAt(2);
+    list.display();
+
+
+    BallPlayer balling = new BallPlayer();
+    balling.append("febry goy");
+    balling.append("faiz goy");
+    balling.prepend("isna goy");
+    balling.display();
+    balling.removeAt(2);
+    balling.display();
 
     //LinkedList list = new LinkedList();
     //list.append(20);
